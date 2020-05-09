@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "verify": "yarn lint && yarn test",
-    "test": "react-scripts test",
+    "test:watch": "react-scripts test",
+    "test": "CI=true react-scripts test --env=jsdom",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --max-warnings 0",
     "lint:fix": "yarn lint --fix",
     "eject": "react-scripts eject"
