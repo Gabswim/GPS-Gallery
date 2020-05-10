@@ -1,16 +1,25 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 import { APIGatewayEvent, Context } from 'aws-lambda';
 
-const API_ENDPOINT = 'https://icanhazdadjoke.com/';
+const API_ENDPOINT = 'https://api.chucknorris.io/jokes/random';
+
+interface API_RESPONSE {
+  created_at: string;
+  icon_url: string;
+  id: string;
+  updated_at: string;
+  url: string;
+  value: string;
+}
 
 const handler = async (event: APIGatewayEvent, context: Context) => {
-  return fetch(API_ENDPOINT, { headers: { Accept: 'application/json' } })
-      .then((response) => response.json())
-      .then((data) => ({
-        statusCode: 200,
-        body: data.joke,
-      }))
-      .catch((error) => ({ statusCode: 422, body: String(error) }));
+  try {
+    const response = await axios.get<API_RESPONSE>(API_ENDPOINT);
+    const data = response.data;
+    return { statusCode: 200, body: data.value };
+  } catch (e) {
+    return { statusCode: 422, body: String(e) };
+  }
 };
 
 export { handler };
