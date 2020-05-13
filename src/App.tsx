@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Tile from './Tile';
+import Tile from './components/Tile';
 import styled from 'styled-components';
 
 import drawing from './assets/gps_art_bike.jpg';
@@ -32,11 +32,43 @@ const App = () => {
         upvoteCount={upvoteCount2}
         setUpvoteCount={doUpvote2}
       />
+      <Tile
+        gpsDrawing={drawingTrex}
+        profilePicture={profilePic2}
+        profileName={'Charles Demers-Potvin'}
+        commentCount={6}
+        upvoteCount={upvoteCount2}
+        setUpvoteCount={doUpvote2}
+      />
+      <Tile
+        gpsDrawing={drawing}
+        profilePicture={profilePic}
+        profileName={'Gabriel Legault'}
+        commentCount={9}
+        upvoteCount={upvoteCount}
+        setUpvoteCount={doUpvote1}
+      />
+      <Tile
+        gpsDrawing={drawing}
+        profilePicture={profilePic}
+        profileName={'Gabriel Legault'}
+        commentCount={9}
+        upvoteCount={upvoteCount}
+        setUpvoteCount={doUpvote1}
+      />
+      <Tile
+        gpsDrawing={drawing}
+        profilePicture={profilePic}
+        profileName={'Gabriel Legault'}
+        commentCount={9}
+        upvoteCount={upvoteCount}
+        setUpvoteCount={doUpvote1}
+      />
     </Body>
   );
 };
 const Body = styled.div`
-  flex: 1;
+  width: 100%;
 `;
 
 export default App;

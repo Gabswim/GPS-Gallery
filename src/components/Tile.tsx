@@ -1,6 +1,6 @@
 import React from 'react';
-import commentIcon from './assets/comment_icon.svg';
-import upvoteIcon from './assets/upvote_icon.svg';
+import commentIcon from '../assets/comment_icon.svg';
+import upvoteIcon from '../assets/upvote_icon.svg';
 import styled from 'styled-components';
 
 type TileProps = {
@@ -49,11 +49,12 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
 };
 
 const TileView = styled.div`
+  display: inline-grid;
   width: 370px;
   height: auto;
   flex-flow: column wrap;
   background-color: #fff;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `;
 
 const ImageBtn = styled.button`
