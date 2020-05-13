@@ -31,7 +31,7 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
       <ButtonBar>
         <ProfileBtn onClick={getProfile}>
           <ProfileImage src={profilePicture}></ProfileImage>
-          <Name>{profileName}</Name>
+          <ProfileName>{profileName}</ProfileName>
         </ProfileBtn>
         <ButtonGroup>
           <CommentBtn onClick={writeComment}>
@@ -88,7 +88,7 @@ const ProfileImage = styled.img`
   border-radius: 10px;
 `;
 
-const Name = styled.text`
+const ProfileName = styled.label`
   font-size: 12px;
   font-family: Verdana;
   font-weight: 600;
@@ -109,7 +109,7 @@ const CommentBtn = styled.button`
 
 const CommentIcon = styled.img``;
 
-const CommentCounter = styled.text`
+const CommentCounter = styled.label`
   margin-left: 2px;
 `;
 
@@ -121,6 +121,6 @@ const UpvoteBtn = styled.button`
 
 const UpvoteIcon = styled.img``;
 
-const UpvoteCounter = styled.text``;
+const UpvoteCounter = styled.label``;
 
 export default Tile;
