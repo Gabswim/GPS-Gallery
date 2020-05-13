@@ -53,7 +53,7 @@ const TileView = styled.div`
   width: 370px;
   height: auto;
   flex-flow: column wrap;
-  background-color: #fff;
+  background-color: #e5e5e5;
   margin-bottom: 20px;
 `;
 
@@ -61,26 +61,31 @@ const ImageBtn = styled.button`
   width: 100%;
   height: 100%;
   border: none;
-  background-color: #fff;
+  background-color: #e5e5e5;
 `;
 
 const GpsImage = styled.img`
   max-width: 350px;
   height: auto;
   border-radius: 10px;
+  border: 1px solid black;
 `;
 
 const ButtonBar = styled.div`
+  display: flex;
   width: 100%;
   height: 30px;
   flex-flow: row wrap;
+  align-items: center;
 `;
 
 const ProfileBtn = styled.button`
+  display: flex;
   border: none;
   height: 100%;
-  background-color: #fff;
+  background-color: #e5e5e5;
   margin-left: 10px;
+  align-items: center;
 `;
 
 const ProfileImage = styled.img`
@@ -105,7 +110,7 @@ const ButtonGroup = styled.div`
 const CommentBtn = styled.button`
   height: 100%;
   border: none;
-  background-color: #fff;
+  background-color: #e5e5e5;
 `;
 
 const CommentIcon = styled.img``;
@@ -117,7 +122,7 @@ const CommentCounter = styled.label`
 const UpvoteBtn = styled.button`
   height: 100%;
   border: none;
-  background-color: #fff;
+  background-color: #e5e5e5;
 `;
 
 const UpvoteIcon = styled.img``;

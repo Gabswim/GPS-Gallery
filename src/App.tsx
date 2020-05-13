@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Tile from './components/Tile';
+import TopBar from './components/TopBar';
 import styled from 'styled-components';
 
 import drawing from './assets/gps_art_bike.jpg';
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <Body>
+      <TopBar />
       <Tile
         gpsDrawing={drawing}
         profilePicture={profilePic}
@@ -68,6 +70,7 @@ const App = () => {
   );
 };
 const Body = styled.div`
+  background-color: #e5e5e5;
   width: 100%;
 `;
 
