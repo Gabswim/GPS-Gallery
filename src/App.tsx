@@ -1,43 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
+import Tile from './Tile';
+import styled from 'styled-components';
 
-enum FetchStatus {
-  IDLE,
-  LOADING,
-  ERROR,
-  SUCCESS,
-}
+import drawing from './assets/gps_art_bike.jpg';
+import profilePic from './assets/profile_image.png';
+import upvoteIcon from './assets/upvote_icon.svg';
+import commentIcon from './assets/comment_icon.svg';
 
-const App: React.FC = () => {
-  const [fetchStatus, setFetchStatus] = useState(FetchStatus.IDLE);
-  const [data, setData] = useState('');
+console.log(drawing);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setFetchStatus(FetchStatus.LOADING);
-
-        const res = await fetch('/.netlify/functions/exampleHandler');
-        const text = await res.text();
-
-        setData(text);
-        setFetchStatus(FetchStatus.SUCCESS);
-      } catch (e) {
-        setFetchStatus(FetchStatus.ERROR);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (fetchStatus === FetchStatus.LOADING) {
-    return <h1>Loading...</h1>;
-  } else if (fetchStatus === FetchStatus.SUCCESS) {
-    return <h1>{data}</h1>;
-  } else if (fetchStatus === FetchStatus.ERROR) {
-    return <h1>Error</h1>;
-  } else {
-    return null;
-  }
+const App = () => {
+  return (
+    <Body>
+      <Tile></Tile>
+      <Tile></Tile>
+      <Tile></Tile>
+    </Body>
+  );
 };
+const Body = styled.div`
+  flex: 1;
+`;
 
 export default App;
