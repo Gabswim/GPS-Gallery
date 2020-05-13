@@ -9,9 +9,10 @@ type TileProps = {
   profileName: string;
   commentCount: number;
   upvoteCount: number;
+  setUpvoteCount: () => void;
 };
 
-const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCount }: TileProps) => {
+const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCount, setUpvoteCount }: TileProps) => {
   function getRide() {
     console.log('Open the ride stats');
   }
@@ -20,9 +21,6 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
   }
   function writeComment() {
     console.log('write a comment here');
-  }
-  function doUpvote() {
-    console.log('upvote the ride');
   }
 
   return (
@@ -40,7 +38,7 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
             <CommentIcon src={commentIcon}></CommentIcon>
             <CommentCounter>{commentCount}</CommentCounter>
           </CommentBtn>
-          <UpvoteBtn onClick={doUpvote}>
+          <UpvoteBtn onClick={setUpvoteCount}>
             <UpvoteIcon src={upvoteIcon}></UpvoteIcon>
             <UpvoteCounter>{upvoteCount}</UpvoteCounter>
           </UpvoteBtn>

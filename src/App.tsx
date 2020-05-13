@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Tile from './Tile';
 import styled from 'styled-components';
 
@@ -8,6 +8,12 @@ import profilePic from './assets/profile_image.png';
 import profilePic2 from './assets/profile_image2.jpg';
 
 const App = () => {
+  const [upvoteCount, setUpvoteCount] = useState(102);
+  const [upvoteCount2, setUpvoteCount2] = useState(99);
+
+  const doUpvote1 = () => setUpvoteCount((prevState) => prevState + 1);
+  const doUpvote2 = () => setUpvoteCount2((prevState) => prevState + 1);
+
   return (
     <Body>
       <Tile
@@ -15,14 +21,16 @@ const App = () => {
         profilePicture={profilePic}
         profileName={'Gabriel Legault'}
         commentCount={9}
-        upvoteCount={102}
+        upvoteCount={upvoteCount}
+        setUpvoteCount={doUpvote1}
       />
       <Tile
         gpsDrawing={drawingTrex}
         profilePicture={profilePic2}
         profileName={'Charles Demers-Potvin'}
         commentCount={6}
-        upvoteCount={99}
+        upvoteCount={upvoteCount2}
+        setUpvoteCount={doUpvote2}
       />
     </Body>
   );
