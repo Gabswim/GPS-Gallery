@@ -1,11 +1,17 @@
 import React from 'react';
-import drawing from './assets/gps_art_bike.jpg';
-import profilePic from './assets/profile_image.png';
 import commentIcon from './assets/comment_icon.svg';
 import upvoteIcon from './assets/upvote_icon.svg';
 import styled from 'styled-components';
 
-const Tile = () => {
+type TileProps = {
+  gpsDrawing: string;
+  profilePicture: string;
+  profileName: string;
+  commentCount: number;
+  upvoteCount: number;
+};
+
+const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCount }: TileProps) => {
   function getRide() {
     console.log('Open the ride stats');
   }
@@ -22,21 +28,21 @@ const Tile = () => {
   return (
     <TileView>
       <ImageBtn onClick={getRide}>
-        <GpsImage src={drawing}></GpsImage>
+        <GpsImage src={gpsDrawing}></GpsImage>
       </ImageBtn>
       <ButtonBar>
         <ProfileBtn onClick={getProfile}>
-          <ProfileImage src={profilePic}></ProfileImage>
-          <Name>Gabriel Legault</Name>
+          <ProfileImage src={profilePicture}></ProfileImage>
+          <Name>{profileName}</Name>
         </ProfileBtn>
         <ButtonGroup>
           <CommentBtn onClick={writeComment}>
             <CommentIcon src={commentIcon}></CommentIcon>
-            <CommentCounter>10</CommentCounter>
+            <CommentCounter>{commentCount}</CommentCounter>
           </CommentBtn>
           <UpvoteBtn onClick={doUpvote}>
             <UpvoteIcon src={upvoteIcon}></UpvoteIcon>
-            <UpvoteCounter>100</UpvoteCounter>
+            <UpvoteCounter>{upvoteCount}</UpvoteCounter>
           </UpvoteBtn>
         </ButtonGroup>
       </ButtonBar>
@@ -79,8 +85,8 @@ const ProfileBtn = styled.button`
 `;
 
 const ProfileImage = styled.img`
-  max-width: 20px;
-  height: auto;
+  height: 20px;
+  width: 20px;
   border-radius: 10px;
 `;
 
@@ -105,7 +111,9 @@ const CommentBtn = styled.button`
 
 const CommentIcon = styled.img``;
 
-const CommentCounter = styled.text``;
+const CommentCounter = styled.text`
+  margin-left: 2px;
+`;
 
 const UpvoteBtn = styled.button`
   height: 100%;
