@@ -3,14 +3,14 @@ import commentIcon from '../assets/comment_icon.svg';
 import upvoteIcon from '../assets/upvote_icon.svg';
 import styled from 'styled-components';
 
-type TileProps = {
+interface TileProps {
   gpsDrawing: string;
   profilePicture: string;
   profileName: string;
   commentCount: number;
   upvoteCount: number;
   setUpvoteCount: () => void;
-};
+}
 
 const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCount, setUpvoteCount }: TileProps) => {
   function getRide() {
@@ -26,20 +26,20 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
   return (
     <TileView>
       <ImageBtn onClick={getRide}>
-        <GpsImage src={gpsDrawing}></GpsImage>
+        <GpsImage src={gpsDrawing} alt="ride image" />
       </ImageBtn>
       <ButtonBar>
         <ProfileBtn onClick={getProfile}>
-          <ProfileImage src={profilePicture}></ProfileImage>
+          <ProfileImage src={profilePicture} />
           <ProfileName>{profileName}</ProfileName>
         </ProfileBtn>
         <ButtonGroup>
           <CommentBtn onClick={writeComment}>
-            <CommentIcon src={commentIcon}></CommentIcon>
+            <img src={commentIcon} alt="comment icon" />
             <CommentCounter>{commentCount}</CommentCounter>
           </CommentBtn>
           <UpvoteBtn onClick={setUpvoteCount}>
-            <UpvoteIcon src={upvoteIcon}></UpvoteIcon>
+            <img src={upvoteIcon} alt="upvote icon" />
             <UpvoteCounter>{upvoteCount}</UpvoteCounter>
           </UpvoteBtn>
         </ButtonGroup>
@@ -49,19 +49,14 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
 };
 
 const TileView = styled.div`
-  display: inline-grid;
   width: 370px;
   height: auto;
   flex-flow: column wrap;
-  background-color: #e5e5e5;
   margin-bottom: 20px;
 `;
 
-const ImageBtn = styled.button`
-  width: 100%;
-  height: 100%;
+const ImageBtn = styled.a`
   border: none;
-  background-color: #e5e5e5;
 `;
 
 const GpsImage = styled.img`
@@ -79,12 +74,9 @@ const ButtonBar = styled.div`
   align-items: center;
 `;
 
-const ProfileBtn = styled.button`
+const ProfileBtn = styled.a`
   display: flex;
   border: none;
-  height: 100%;
-  background-color: #e5e5e5;
-  margin-left: 10px;
   align-items: center;
 `;
 
@@ -96,36 +88,30 @@ const ProfileImage = styled.img`
 
 const ProfileName = styled.label`
   font-size: 12px;
-  font-family: Verdana;
-  font-weight: 600;
+  font-family: Inter;
+  font-weight: 500;
   padding-left: 5px;
 `;
 
 const ButtonGroup = styled.div`
-  height: 100%;
   float: right;
   margin-right: 10px;
 `;
 
-const CommentBtn = styled.button`
-  height: 100%;
+const CommentBtn = styled.a`
   border: none;
-  background-color: #e5e5e5;
 `;
-
-const CommentIcon = styled.img``;
 
 const CommentCounter = styled.label`
   margin-left: 2px;
 `;
 
-const UpvoteBtn = styled.button`
-  height: 100%;
-  border: none;
-  background-color: #e5e5e5;
+const UpvoteBtn = styled.a`
+  cursor: pointer;
+  & > * {
+    cursor: pointer;
+  }
 `;
-
-const UpvoteIcon = styled.img``;
 
 const UpvoteCounter = styled.label``;
 

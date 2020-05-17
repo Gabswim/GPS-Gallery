@@ -13,9 +13,9 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-resize-image": "^1.0.4",
     "react-scripts": "3.4.1",
     "styled-components": "5.1.0",
+    "styled-reset": "4.1.4",
     "typescript": "~3.7.2"
   },
   "scripts": {
