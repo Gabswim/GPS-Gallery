@@ -1,73 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Reset } from 'styled-reset/lib';
 import styled from 'styled-components';
-import Tile from './components/Tile';
+import { ActivityCardProps } from './components/ActivityCard';
 
 import TopBar from './components/TopBar';
 import drawing from './assets/gps_art_bike.jpg';
-import drawingTrex from './assets/gps_art_trex.jpg';
 import profilePic from './assets/profile_image.png';
-import profilePic2 from './assets/profile_image2.jpg';
+import ActivitiesGrid from './components/ActivitiesGrid';
+
+const FAKE_DATA: ActivityCardProps[] = [
+  {
+    commentCount: 6,
+    gpsDrawing: drawing,
+    profileName: 'Gabriel Legault 1',
+    profilePicture: profilePic,
+    upvote: () => console.log('upvote'),
+    upvoteCount: 10,
+  },
+  {
+    commentCount: 6,
+    gpsDrawing: drawing,
+    profileName: 'Gabriel Legault 2',
+    profilePicture: profilePic,
+    upvote: () => console.log('upvote'),
+    upvoteCount: 10,
+  },
+  {
+    commentCount: 6,
+    gpsDrawing: drawing,
+    profileName: 'Gabriel Legault 3',
+    profilePicture: profilePic,
+    upvote: () => console.log('upvote'),
+    upvoteCount: 10,
+  },
+  {
+    commentCount: 6,
+    gpsDrawing: drawing,
+    profileName: 'Gabriel Legault 4',
+    profilePicture: profilePic,
+    upvote: () => console.log('upvote'),
+    upvoteCount: 10,
+  },
+];
 
 const App = () => {
-  const [upvoteCount, setUpvoteCount] = useState(102);
-  const [upvoteCount2, setUpvoteCount2] = useState(99);
-  const doUpvote1 = () => setUpvoteCount((prevState) => prevState + 1);
-  const doUpvote2 = () => setUpvoteCount2((prevState) => prevState + 1);
-
   return (
     <>
       <Reset />
       <Body>
         <TopBar />
-        <Tile
-          gpsDrawing={drawing}
-          profilePicture={profilePic}
-          profileName={'Gabriel Legault'}
-          commentCount={9}
-          upvoteCount={upvoteCount}
-          setUpvoteCount={doUpvote1}
-        />
-        <Tile
-          gpsDrawing={drawingTrex}
-          profilePicture={profilePic2}
-          profileName={'Charles Demers-Potvin'}
-          commentCount={6}
-          upvoteCount={upvoteCount2}
-          setUpvoteCount={doUpvote2}
-        />
-        <Tile
-          gpsDrawing={drawingTrex}
-          profilePicture={profilePic2}
-          profileName={'Charles Demers-Potvin'}
-          commentCount={6}
-          upvoteCount={upvoteCount2}
-          setUpvoteCount={doUpvote2}
-        />
-        <Tile
-          gpsDrawing={drawing}
-          profilePicture={profilePic}
-          profileName={'Gabriel Legault'}
-          commentCount={9}
-          upvoteCount={upvoteCount}
-          setUpvoteCount={doUpvote1}
-        />
-        <Tile
-          gpsDrawing={drawing}
-          profilePicture={profilePic}
-          profileName={'Gabriel Legault'}
-          commentCount={9}
-          upvoteCount={upvoteCount}
-          setUpvoteCount={doUpvote1}
-        />
-        <Tile
-          gpsDrawing={drawing}
-          profilePicture={profilePic}
-          profileName={'Gabriel Legault'}
-          commentCount={9}
-          upvoteCount={upvoteCount}
-          setUpvoteCount={doUpvote1}
-        />
+        <ActivitiesGrid activities={FAKE_DATA} />
       </Body>
     </>
   );

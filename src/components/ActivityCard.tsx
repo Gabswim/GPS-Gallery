@@ -3,16 +3,23 @@ import commentIcon from '../assets/comment_icon.svg';
 import upvoteIcon from '../assets/upvote_icon.svg';
 import styled from 'styled-components';
 
-interface TileProps {
+export interface ActivityCardProps {
   gpsDrawing: string;
   profilePicture: string;
   profileName: string;
   commentCount: number;
   upvoteCount: number;
-  setUpvoteCount: () => void;
+  upvote: () => void;
 }
 
-const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCount, setUpvoteCount }: TileProps) => {
+const ActivityCard = ({
+  gpsDrawing,
+  profilePicture,
+  profileName,
+  commentCount,
+  upvoteCount,
+  upvote,
+}: ActivityCardProps) => {
   function getRide() {
     console.log('Open the ride stats');
   }
@@ -25,9 +32,7 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
 
   return (
     <TileView>
-      <ImageBtn onClick={getRide}>
-        <GpsImage src={gpsDrawing} alt="ride image" />
-      </ImageBtn>
+      <GpsImage src={gpsDrawing} alt="ride image" />
       <ButtonBar>
         <ProfileBtn onClick={getProfile}>
           <ProfileImage src={profilePicture} />
@@ -38,7 +43,7 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
             <img src={commentIcon} alt="comment icon" />
             <CommentCounter>{commentCount}</CommentCounter>
           </CommentBtn>
-          <UpvoteBtn onClick={setUpvoteCount}>
+          <UpvoteBtn onClick={upvote}>
             <img src={upvoteIcon} alt="upvote icon" />
             <UpvoteCounter>{upvoteCount}</UpvoteCounter>
           </UpvoteBtn>
@@ -49,21 +54,28 @@ const Tile = ({ gpsDrawing, profilePicture, profileName, commentCount, upvoteCou
 };
 
 const TileView = styled.div`
-  width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-item: center;
+  justify-content: center;
+  align-content: center;
   height: auto;
-  flex-flow: column wrap;
-  margin-bottom: 20px;
+  position: relative;
 `;
 
 const ImageBtn = styled.a`
   border: none;
+  line-height: 0;
+  padding: 0 0 0 0;
 `;
 
 const GpsImage = styled.img`
-  max-width: 350px;
+  max-width: 100%;
+  width: 100%;
   height: auto;
   border-radius: 10px;
   border: 1px solid black;
+  cursor: pointer;
 `;
 
 const ButtonBar = styled.div`
@@ -115,4 +127,4 @@ const UpvoteBtn = styled.a`
 
 const UpvoteCounter = styled.label``;
 
-export default Tile;
+export default ActivityCard;
