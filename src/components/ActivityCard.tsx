@@ -12,14 +12,14 @@ export interface ActivityCardProps {
   upvote: () => void;
 }
 
-const ActivityCard = ({
+const ActivityCard: React.FC<ActivityCardProps> = ({
   gpsDrawing,
   profilePicture,
   profileName,
   commentCount,
   upvoteCount,
   upvote,
-}: ActivityCardProps) => {
+}) => {
   function getRide() {
     console.log('Open the ride stats');
   }
@@ -32,7 +32,9 @@ const ActivityCard = ({
 
   return (
     <TileView>
-      <GpsImage src={gpsDrawing} alt="ride image" />
+      <div onClick={getRide}>
+        <GpsImage src={gpsDrawing} alt="ride image" />
+      </div>
       <ButtonBar>
         <ProfileBtn onClick={getProfile}>
           <ProfileImage src={profilePicture} />
@@ -63,18 +65,11 @@ const TileView = styled.div`
   position: relative;
 `;
 
-const ImageBtn = styled.a`
-  border: none;
-  line-height: 0;
-  padding: 0 0 0 0;
-`;
-
 const GpsImage = styled.img`
   max-width: 100%;
   width: 100%;
   height: auto;
   border-radius: 10px;
-  border: 1px solid black;
   cursor: pointer;
 `;
 
@@ -106,8 +101,7 @@ const ProfileName = styled.label`
 `;
 
 const ButtonGroup = styled.div`
-  float: right;
-  margin-right: 10px;
+  margin-left: auto;
 `;
 
 const CommentBtn = styled.a`
@@ -123,6 +117,7 @@ const UpvoteBtn = styled.a`
   & > * {
     cursor: pointer;
   }
+  padding-left: 8px;
 `;
 
 const UpvoteCounter = styled.label``;

@@ -6,7 +6,7 @@ export interface ActivitiesGridProps {
   activities: ActivityCardProps[];
 }
 
-const ActivitiesGrid = ({ activities }: ActivitiesGridProps) => {
+const ActivitiesGrid: React.FC<ActivitiesGridProps> = ({ activities }) => {
   return (
     <Grid>
       {activities.map((activity, i) => (
@@ -27,9 +27,8 @@ const ActivitiesGrid = ({ activities }: ActivitiesGridProps) => {
 const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-gap: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  grid-gap: 20px;
+  padding: 0 20px 0 20px;
 `;
 
 export default ActivitiesGrid;

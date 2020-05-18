@@ -43,7 +43,7 @@ const FAKE_DATA: ActivityCardProps[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <Reset />
