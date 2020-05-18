@@ -1,9 +1,9 @@
 import React from 'react';
 import { Reset } from 'styled-reset/lib';
-import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import { ActivityCardProps } from './components/ActivityCard';
 
-import TopBar from './components/TopBar';
+import NavBar from './components/NavBar';
 import drawing from './assets/gps_art_bike.jpg';
 import profilePic from './assets/profile_image.png';
 import ActivitiesGrid from './components/ActivitiesGrid';
@@ -47,16 +47,17 @@ const App: React.FC = () => {
   return (
     <>
       <Reset />
-      <Body>
-        <TopBar />
-        <ActivitiesGrid activities={FAKE_DATA} />
-      </Body>
+      <GlobalStyle />
+      <NavBar />
+      <ActivitiesGrid activities={FAKE_DATA} />
     </>
   );
 };
-const Body = styled.div`
-  background-color: #fafafa;
-  width: 100%;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #fafafa;
+  }
 `;
 
 export default App;

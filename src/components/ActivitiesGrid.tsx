@@ -27,8 +27,20 @@ const ActivitiesGrid: React.FC<ActivitiesGridProps> = ({ activities }) => {
 const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-gap: 20px;
-  padding: 0 20px 0 20px;
+  grid-gap: 10px;
+
+  @media (min-width: 320px) {
+    padding: 0 5px 0 5px;
+    grid-gap: 5px;
+  }
+  @media (min-width: 375px) {
+    padding: 0 10px 0 10px;
+    grid-gap: 10px;
+  }
+  @media (min-width: 750px) {
+    padding: 0 20px 0 20px;
+    grid-gap: 20px;
+  }
 `;
 
 export default ActivitiesGrid;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import iconAdd from '../assets/add_icon.svg';
 
-const TopBar = () => {
+const NavBar = () => {
   function AddTile() {
     console.log('Add an activity');
   }
@@ -46,4 +46,4 @@ const IconAdd = styled.img`
   width: 100%;
 `;
 
-export default TopBar;
+export default NavBar;
