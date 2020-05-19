@@ -15,6 +15,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "styled-components": "5.1.0",
+    "styled-reset": "4.1.4",
     "typescript": "~3.7.2"
   },
   "scripts": {
@@ -50,6 +51,7 @@
     "@babel/plugin-transform-object-assign": "7.8.3",
     "@babel/preset-typescript": "7.9.0",
     "@types/aws-lambda": "8.10.51",
+    "@types/styled-components": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "2.31.0",
     "@typescript-eslint/parser": "2.31.0",
     "eslint-config-prettier": "6.11.0",
