@@ -1,14 +1,13 @@
 import React from 'react';
 import { Reset } from 'styled-reset/lib';
 import { createGlobalStyle } from 'styled-components';
-import { ActivityCardProps } from './components/ActivityCard';
 
 import NavBar from './components/NavBar';
 import drawing from './assets/gps_art_bike.jpg';
 import profilePic from './assets/profile_image.png';
-import ActivitiesGrid from './components/ActivitiesGrid';
+import { ActivitiesGrid } from './components';
 
-const FAKE_DATA: ActivityCardProps[] = [
+const FAKE_DATA = [
   {
     commentCount: 6,
     gpsDrawing: drawing,

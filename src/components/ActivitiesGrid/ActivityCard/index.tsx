@@ -1,6 +1,6 @@
 import React from 'react';
-import commentIcon from '../assets/comment_icon.svg';
-import upvoteIcon from '../assets/upvote_icon.svg';
+import commentIcon from './comment_icon.svg';
+import upvoteIcon from './upvote_icon.svg';
 import styled from 'styled-components';
 
 export interface ActivityCardProps {
@@ -11,6 +11,8 @@ export interface ActivityCardProps {
   upvoteCount: number;
   upvote: () => void;
 }
+
+export const UPVOTE_ALT = 'upvote icon';
 
 const ActivityCard: React.FC<ActivityCardProps> = ({
   gpsDrawing,
@@ -46,8 +48,8 @@ const ActivityCard: React.FC<ActivityCardProps> = ({
             <CommentCounter>{commentCount}</CommentCounter>
           </CommentBtn>
           <UpvoteBtn onClick={upvote}>
-            <img src={upvoteIcon} alt="upvote icon" />
-            <UpvoteCounter>{upvoteCount}</UpvoteCounter>
+            <img src={upvoteIcon} alt={UPVOTE_ALT} />
+            <label>{upvoteCount}</label>
           </UpvoteBtn>
         </ButtonGroup>
       </ButtonBar>
@@ -119,7 +121,5 @@ const UpvoteBtn = styled.a`
   }
   padding-left: 8px;
 `;
-
-const UpvoteCounter = styled.label``;
 
 export default ActivityCard;
