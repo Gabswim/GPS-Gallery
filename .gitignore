@@ -27,3 +27,6 @@ yarn-error.log*
 
 # Netlify
 lambda/*
+
+# Env file
+.env

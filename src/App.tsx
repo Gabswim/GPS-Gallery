@@ -5,7 +5,8 @@ import { createGlobalStyle } from 'styled-components';
 import NavBar from './components/NavBar';
 import drawing from './assets/gps_art_bike.jpg';
 import profilePic from './assets/profile_image.png';
-import { ActivitiesGrid } from './components';
+import { ActivitiesGrid, StravaAuthButton } from './components';
+import { StravaParams } from './components/StravaAuthButton';
 
 const FAKE_DATA = [
   {
@@ -41,14 +42,23 @@ const FAKE_DATA = [
     upvoteCount: 10,
   },
 ];
-
+/* eslint-disable @typescript-eslint/camelcase */
+const params: StravaParams = {
+  approval_prompt: 'auto',
+  client_id: parseInt(process.env.REACT_APP_STRAVA_APP_CLIENT_ID as string),
+  permissions: [],
+  redirect_uri: '',
+  response_type: '',
+};
+/* eslint-enable @typescript-eslint/camelcase */
 const App: React.FC = () => {
   return (
     <>
       <Reset />
       <GlobalStyle />
       <NavBar />
-      <ActivitiesGrid activities={FAKE_DATA} />
+      <StravaAuthButton params={params} />
+      {/*<ActivitiesGrid activities={FAKE_DATA} />*/}
     </>
   );
 };
